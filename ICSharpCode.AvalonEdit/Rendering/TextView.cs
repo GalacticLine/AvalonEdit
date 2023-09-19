@@ -83,7 +83,27 @@ namespace ICSharpCode.AvalonEdit.Rendering
 		}
 
 		#endregion
-
+		
+  		#region LineSpacing Property
+		/// <summary>
+		/// Change LineSpacing.
+		/// </summary>
+		public double LineSpacing {
+			get {
+				return (double)GetValue(LineSpacingProperty);
+			}
+			set {
+				SetValue(LineSpacingProperty, value);
+			}
+		}
+		/// <summary>
+		/// LineSpacing property.
+		/// </summary>
+		public static readonly DependencyProperty LineSpacingProperty = 
+  			DependencyProperty.Register("LineSpacing", typeof(double), typeof(TextView), 
+	 									new PropertyMetadata(1.5));
+		#endregion
+  
 		#region Document Property
 		/// <summary>
 		/// Document property.
