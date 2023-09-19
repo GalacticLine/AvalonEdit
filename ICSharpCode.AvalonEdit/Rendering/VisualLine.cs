@@ -281,7 +281,7 @@ namespace ICSharpCode.AvalonEdit.Rendering
 			this.textLines = textLines.AsReadOnly();
 			Height = 0;
 			foreach (TextLine line in textLines)
-				Height += line.Height;
+				Height += line.Height * textView.LineSpacing;
 		}
 
 		/// <summary>
@@ -756,7 +756,7 @@ namespace ICSharpCode.AvalonEdit.Rendering
 					// Invert Axis for RightToLeft (Arabic language) support
 					textLine.Draw(drawingContext, new Point(0, pos), InvertAxes.Horizontal);
 				}
-				pos += textLine.Height;
+				pos += textLine.Height * textView.LineSpacing;
 			}
 			this.Height = pos;
 			drawingContext.Close();
